@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Prices of coffees
+    float espressoPrice = 2.50;
+    float lattePrice = 3.50;
+    float cappuccinoPrice = 3.00;
+
+   
+    int espressoQty, latteQty, cappuccinoQty;
+
+  
+    float *pEspressoPrice = &espressoPrice;
+    float *pLattePrice = &lattePrice;
+    float *pCappuccinoPrice = &cappuccinoPrice;
+
+   
+    int *pEspressoQty = &espressoQty;
+    int *pLatteQty = &latteQty;
+    int *pCappuccinoQty = &cappuccinoQty;
+
+    
+    cout << "Enter quantity for Espresso: ";
+    cin >> *pEspressoQty;
+    cout << "Enter quantity for Latte: ";
+    cin >> *pLatteQty;
+    cout << "Enter quantity for Cappuccino: ";
+    cin >> *pCappuccinoQty;
+
+   
+    float espressoCost = (*pEspressoQty) * (*pEspressoPrice);
+    float latteCost = (*pLatteQty) * (*pLattePrice);
+    float cappuccinoCost = (*pCappuccinoQty) * (*pCappuccinoPrice);
+
+   
+    float totalBill = 0;
+    float *pTotalBill = &totalBill;
+
+   
+    *pTotalBill = espressoCost + latteCost + cappuccinoCost;
+
+   
+    cout << "\n----- Bill -----\n";
+    cout << "Item         Qty   Price   Subtotal\n";
+    cout << "Espresso     " << *pEspressoQty << "     $" << *pEspressoPrice << "    $" << espressoCost << "\n";
+    cout << "Latte        " << *pLatteQty << "     $" << *pLattePrice << "    $" << latteCost << "\n";
+    cout << "Cappuccino   " << *pCappuccinoQty << "     $" << *pCappuccinoPrice << "    $" << cappuccinoCost << "\n";
+    cout << "------------------------------\n";
+    cout << "Total Bill: $" << *pTotalBill << endl;
+
+    return 0;
+}
